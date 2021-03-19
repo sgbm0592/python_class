@@ -1,0 +1,4 @@
+nombre,numero,email
+Gaby,4339355831,gaby@turning.io
+Sandra,4921859545,sgbm0592@gmail.com
+Adolfo,3339802345,luna_adolfo@gmail.com
