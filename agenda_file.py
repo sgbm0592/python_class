@@ -10,7 +10,7 @@ archivo.write('Adolfo Rios,3339802345,luna_adolfo@gmail.com\n')
 archivo.close()
 
 while opcion != 0:
-    print('\n\n\nMenu:\n\t1 Agregar Contacto\n\t2 Ver Contactos\n\t3 Buscar Contacto\n\t4 Eliminar Contacto\n\t0 Salir')
+    print('\n\nMenu:\n\t1 Agregar Contacto\n\t2 Ver Contactos\n\t3 Buscar Contacto\n\t4 Eliminar Contacto\n\t0 Salir')
     opcion = int(input('Elige una opcion: '))
 
     if opcion == 1:
@@ -27,6 +27,8 @@ while opcion != 0:
         archivo = open('agenda.txt', 'r')
         contactos = archivo.readlines()
         for contacto in contactos:
+            if 'nombre' in contacto:
+                continue
             data = contacto.split(',')
             print('nombre:{} - numero:{} - email:{}'.format(data[0], data[1], data[2]))
         archivo.close()
