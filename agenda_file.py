@@ -19,7 +19,6 @@ while opcion != 0:
         numero = str(input('Ingresa un numero de telefono: '))
         email = str(input('Ingresa un email: '))
         archivo.write('{},{},{}'.format(nombre, numero, email))
-        archivo.close()
         print('Contacto agregado.')
 
     elif opcion == 2:
@@ -31,7 +30,6 @@ while opcion != 0:
                 continue
             data = contacto.split(',')
             print('nombre:{} - numero:{} - email:{}'.format(data[0], data[1], data[2]))
-        archivo.close()
     elif opcion == 3:
         archivo = open(nombre_archivo, 'r')
         print('Buscar Contacto')
@@ -43,9 +41,8 @@ while opcion != 0:
         contactos = archivo.readlines()
         for contacto in contactos:
             if nombre in contacto:
-                print(contacto)
+                print('nombre:{} - numero:{} - email:{}'.format(data[0], data[1], data[2]))
                 encontrado=True
-        archivo.close()
 
         if not encontrado:
             print('El contacto {} no se encuentra en en la agenda'.format(nombre))
@@ -66,12 +63,10 @@ while opcion != 0:
                 encontrado = True
             else:
                 nuevos_contactos.append(contacto)
-        archivo.close()
         archivo = open(nombre_archivo, 'w')
-
         for contacto in nuevos_contactos:
             archivo.write(contacto)
-        archivo.close()
+
         if not encontrado:
             print('El contacto {} no se encuentra en en la agenda'.format(nombre))
 
@@ -79,6 +74,6 @@ while opcion != 0:
         break
     else:
         print('No es una opcion valida.')
-
+    archivo.close()
 
 
